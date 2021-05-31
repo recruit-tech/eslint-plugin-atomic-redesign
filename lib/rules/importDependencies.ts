@@ -50,8 +50,8 @@ export const importDependencies: TSESLint.RuleModule<
     docs: {
       category: "Best Practices",
       description: localize({
-        en: `Each component cannot import sub-components that are finer than itself.`,
-        ja: `各コンポーネントは自身より細かな（下位の）コンポーネントをimportできません。`,
+        en: "Detects each component importing a higher level component than itself.",
+        ja: "各コンポーネントは自身より上位のレベルのコンポーネントをimportできません。",
       }),
 
       recommended: "error",
