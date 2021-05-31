@@ -66,9 +66,12 @@ export class KeywordContentInfo {
   }
 
   getDirectoryFromFile(filepath: string): string | undefined {
-    return Array.from(this.directories.keys()).find(
+    const matchedDirs = Array.from(this.directories.keys()).filter(
       (dirpath) => filepath.indexOf(dirpath) !== -1
     );
+    if (matchedDirs.length === 0) return undefined;
+
+    return matchedDirs.reduce((s, x) => (s.length > x.length ? s : x));
   }
 
   setFileKeywordInfo(filepath: string, program: string) {

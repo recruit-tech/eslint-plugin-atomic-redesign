@@ -10,7 +10,7 @@ import {
 
 // settings
 const defaultOptions: Options = {
-  checkDirectorys: ["./src/components/organisms/*"],
+  checkDirectorys: ["./src/components/organisms/*/"],
   checkFilesInDirectory: ["./src/components/organisms/**/*.ts*"],
   excludeFilePatterns: [".*\\.test.*", ".*\\.stories.*"],
   keywords: [
