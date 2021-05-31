@@ -34,7 +34,7 @@ export const mustUseGlobalState: TSESLint.RuleModule<typeof ruleName, []> = {
     docs: {
       category: "Best Practices",
       description: localize({
-        en: "Organisms component must have Global State (fetch, useContext, useSWR, useSelector, etc.).",
+        en: "Organisms component must have Global States (fetch, useContext, useSWR, useSelector, etc.).",
         ja: "OrganismsコンポーネントはGlobal State（fetch、useContext、useSWR、useSelectorなど）を持つ必要があります。",
       }),
       recommended: "error",
@@ -85,8 +85,10 @@ export const mustUseGlobalState: TSESLint.RuleModule<typeof ruleName, []> = {
             node: node.body[0],
             messageId: ruleName,
             data: {
-              message:
-                "organismsはGlobal State（fetch、useContext、useSWR、useSelectorなど）を持つ必要があります",
+              message: localize({
+                en: "Organisms must have Global States (fetch, useContext, useSWR, useSelector, etc.).",
+                ja: "OrganismsはGlobal State（fetch、useContext、useSWR、useSelectorなど）を持つ必要があります。",
+              }),
             },
           });
       },

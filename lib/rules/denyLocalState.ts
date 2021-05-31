@@ -10,7 +10,7 @@ export const denyLocalState: TSESLint.RuleModule<typeof ruleName, []> = {
     docs: {
       category: "Best Practices",
       description: localize({
-        en: "Atoms components should not have a Local State (setState, useState, useReducer, etc.).",
+        en: "Atoms components should not have Local States (setState, useState, useReducer, etc.).",
         ja: "AtomsコンポーネントはLocal State（setState、useState、useReducerなど）を持つべきではありません。",
       }),
       recommended: "error",
@@ -33,8 +33,8 @@ export const denyLocalState: TSESLint.RuleModule<typeof ruleName, []> = {
         messageId: ruleName,
         data: {
           message: localize({
-            en: `atoms cannot use ${denyedFunctionName} (Local State).`,
-            ja: `atomsで${denyedFunctionName}（Local State）は使えません。`,
+            en: `Atoms cannot use ${denyedFunctionName} (Local State).`,
+            ja: `Atomsで${denyedFunctionName}（Local State）は使えません。`,
           }),
         },
       });

@@ -25,7 +25,7 @@ export const mustUseLocalState: TSESLint.RuleModule<typeof ruleName, []> = {
     docs: {
       category: "Best Practices",
       description: localize({
-        en: "Molecules component must have Local State (setState, useState, useReducer, etc.).",
+        en: "Molecules component must have Local States (setState, useState, useReducer, etc.).",
         ja: "MoleculesコンポーネントはLocal State（setState、useState、useReducerなど）を持つ必要があります。",
       }),
       recommended: "error",
@@ -78,8 +78,8 @@ export const mustUseLocalState: TSESLint.RuleModule<typeof ruleName, []> = {
             messageId: ruleName,
             data: {
               message: localize({
-                en: "molecules must have a Local State (setState, useState, useReducer, etc.).",
-                ja: "moleculesはLocal State（setState、useState、useReducerなど）を持つ必要があります。",
+                en: "Molecules must have Local States (setState, useState, useReducer, etc.).",
+                ja: "MoleculesはLocal State（setState、useState、useReducerなど）を持つ必要があります。",
               }),
             },
           });

@@ -10,7 +10,7 @@ export const denyGlobalState: TSESLint.RuleModule<typeof ruleName, []> = {
     docs: {
       category: "Best Practices",
       description: localize({
-        en: "Atoms and Molecules components should not use Global State (fetch, useContext, useSWR, useSelector, etc.).",
+        en: "Atoms and Molecules components should not use Global States (fetch, useContext, useSWR, useSelector, etc.).",
         ja: "AtomsおよびMoleculesコンポーネントはGlobal State（fetch、useContext、useSWR、useSelectorなど）を使用するべきではありません。",
       }),
       recommended: "error",
