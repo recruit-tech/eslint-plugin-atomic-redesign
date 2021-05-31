@@ -42,7 +42,7 @@ Then configure the rules you want to use under the rules section.
 
 ## Supported Rules
 
-This plugin currently supports 5 rules. Each rule receives one object as an option.
+This plugin currently supports 5 rules. Each rule receives one object as options.
 
 Example:
 
@@ -51,6 +51,8 @@ Example:
   2,
   {
     PropertyName: "value",
+    PropertyName: "value",
+    ...
   },
 ]
 ```
