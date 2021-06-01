@@ -1,5 +1,7 @@
 # eslint-plugin-atomic-redesign
 
+[![npm version](https://badge.fury.io/js/eslint-plugin-atomic-redesign.svg)](https://badge.fury.io/js/eslint-plugin-atomic-redesign)
+
 ESLint rules for [Atomic ReDesign](https://zenn.dev/takepepe/articles/atomic-redesign)ed projects.
 
 ## Installation
@@ -65,14 +67,14 @@ Detects each component importing a higher level component than itself.
 
 ```typescript
 // at src/components/atoms/foo/index.tsx
-import Bar from "../../molecules/bar/index.tsx";
+import Bar from '../../molecules/bar/index.tsx';
 ```
 
 #### Examples of **correct** code for this rule:
 
 ```typescript
 // at src/components/molecules/bar/index.tsx
-import Foo from "../../atoms/foo/index.tsx";
+import Foo from '../../atoms/foo/index.tsx';
 ```
 
 #### Options
