@@ -63,14 +63,14 @@ Example:
 
 Detects each component importing a higher level component than itself.
 
-#### Examples of **incorrect** code for this rule:
+Examples of **incorrect** code for this rule:
 
 ```typescript
 // at src/components/atoms/foo/index.tsx
 import Bar from '../../molecules/bar/index.tsx';
 ```
 
-#### Examples of **correct** code for this rule:
+Examples of **correct** code for this rule:
 
 ```typescript
 // at src/components/molecules/bar/index.tsx
@@ -106,14 +106,14 @@ Example:
 
 Detects that Atoms have Local States (setState, useState, useReducer, etc.).
 
-#### Examples of **incorrect** code for this rule:
+Examples of **incorrect** code for this rule:
 
 ```typescript
 // at src/components/atoms/foo/index.tsx
 const [val, setVal] = useState(0);
 ```
 
-#### Examples of **correct** code for this rule:
+Examples of **correct** code for this rule:
 
 ```typescript
 // at src/components/molecules/bar/index.tsx
@@ -132,14 +132,14 @@ const [val, setVal] = useState(0);
 
 Detects that atoms and molecules have Global States (fetch, useContext, useSWR, useSelector, etc.).
 
-#### Examples of **incorrect** code for this rule:
+Examples of **incorrect** code for this rule:
 
 ```typescript
 // at src/components/molecules/foo/index.tsx
 const [val, setVal] = useContext(0);
 ```
 
-#### Examples of **correct** code for this rule:
+Examples of **correct** code for this rule:
 
 ```typescript
 // at src/components/Organisms/bar/index.tsx
@@ -162,14 +162,14 @@ The plugin will check if source codes in each Molecules directory contain the Lo
 
 **Do not use eslint's `--cache` option** with this plugin. This is because the errors in each file may be resolved by other files.
 
-#### Examples of **incorrect** code for this rule:
+Examples of **incorrect** code for this rule:
 
 ```typescript
 // at src/components/molecules/foo/index.tsx
 // no Local State keywords.
 ```
 
-#### Examples of **correct** code for this rule:
+Examples of **correct** code for this rule:
 
 ```typescript
 // at src/components/molecules/bar/index.tsx
@@ -200,7 +200,7 @@ The plugin will check if source codes in each Organisms directory contain the Gl
 // no Global State keywords.
 ```
 
-#### Examples of **correct** code for this rule:
+Examples of **correct** code for this rule:
 
 ```typescript
 // at src/components/organisms/bar/index.tsx
