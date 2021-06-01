@@ -96,11 +96,11 @@ Example:
   },
 ```
 
-| Property Name             | Description                                                                                                                                                                                                              | Default Value                                     |
-| :------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------ |
-| includeSourceFilePatterns | A set of each component type (atoms and molecules) and a RegExp pattern. If the file path matches each pattern, the rule determines that the file contains components of that type and checks the import statement.      | [here](./lib/rules/importDependencies.ts#L28-L33) |
-| excludeSourceFilePatterns | An array of RegExp patterns. File paths that match any pattern are excluded from the check.                                                                                                                              | [here](./lib/rules/importDependencies.ts#L34)     |
-| importPatterns            | A set of each component type (atoms and molecules) and a RegExp pattern. If the path portion of the import statement matches these patterns, the rule determines that it is loading the corresponding type of component. | [here](./lib/rules/importDependencies.ts#L35-L40) |
+| Property Name             | Description                                                                                                                                                                                                              | Default Value                                                                                                           |
+| :------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------- |
+| includeSourceFilePatterns | A set of each component type (atoms and molecules) and a RegExp pattern. If the file path matches each pattern, the rule determines that the file contains components of that type and checks the import statement.      | [here](https://github.com/recruit-tech/eslint-plugin-atomic-redesign/blob/main/lib/rules/importDependencies.ts#L28-L33) |
+| excludeSourceFilePatterns | An array of RegExp patterns. File paths that match any pattern are excluded from the check.                                                                                                                              | [here](https://github.com/recruit-tech/eslint-plugin-atomic-redesign/blob/main/lib/rules/importDependencies.ts#L34)     |
+| importPatterns            | A set of each component type (atoms and molecules) and a RegExp pattern. If the path portion of the import statement matches these patterns, the rule determines that it is loading the corresponding type of component. | [here](https://github.com/recruit-tech/eslint-plugin-atomic-redesign/blob/main/lib/rules/importDependencies.ts#L35-L40) |
 
 ### Rule: deny-local-state
 
@@ -122,11 +122,11 @@ const [val, setVal] = useState(0);
 
 #### Options
 
-| Property Name             | Description                                                                                    | Default Value                             |
-| :------------------------ | :--------------------------------------------------------------------------------------------- | :---------------------------------------- |
-| includeSourceFilePatterns | An array of RegExp patterns that match the name of the file that must not contain local state. | [here](./lib/rules/denyLocalState.ts#L26) |
-| excludeSourceFilePatterns | An array of RegExp patterns. File paths that match any pattern are excluded from the check.    | [here](./lib/rules/denyLocalState.ts#L27) |
-| denyFunctionNames         | An array of function names that are considered to be using the local state.                    | [here](./lib/rules/denyLocalState.ts#L28) |
+| Property Name             | Description                                                                                    | Default Value                                                                                                   |
+| :------------------------ | :--------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------- |
+| includeSourceFilePatterns | An array of RegExp patterns that match the name of the file that must not contain local state. | [here](https://github.com/recruit-tech/eslint-plugin-atomic-redesign/blob/main/lib/rules/denyLocalState.ts#L26) |
+| excludeSourceFilePatterns | An array of RegExp patterns. File paths that match any pattern are excluded from the check.    | [here](https://github.com/recruit-tech/eslint-plugin-atomic-redesign/blob/main/lib/rules/denyLocalState.ts#L27) |
+| denyFunctionNames         | An array of function names that are considered to be using the local state.                    | [here](https://github.com/recruit-tech/eslint-plugin-atomic-redesign/blob/main/lib/rules/denyLocalState.ts#L28) |
 
 ### Rule: deny-global-state
 
@@ -148,11 +148,11 @@ const [val, setVal] = useContext(0);
 
 #### Options
 
-| Property Name             | Description                                                                                     | Default Value                                  |
-| :------------------------ | :---------------------------------------------------------------------------------------------- | :--------------------------------------------- |
-| includeSourceFilePatterns | An array of RegExp patterns that match the name of the file that must not contain global state. | [here](./lib/rules/denyGlobalState.ts#L26-L29) |
-| excludeSourceFilePatterns | An array of RegExp patterns. File paths that match any pattern are excluded from the check.     | [here](./lib/rules/denyGlobalState.ts#L30)     |
-| denyFunctionNames         | An array of function names that are considered to be using the local state.                     | [here](./lib/rules/denyGlobalState.ts#L31-L39) |
+| Property Name             | Description                                                                                     | Default Value                                                                                                        |
+| :------------------------ | :---------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------- |
+| includeSourceFilePatterns | An array of RegExp patterns that match the name of the file that must not contain global state. | [here](https://github.com/recruit-tech/eslint-plugin-atomic-redesign/blob/main/lib/rules/denyGlobalState.ts#L26-L29) |
+| excludeSourceFilePatterns | An array of RegExp patterns. File paths that match any pattern are excluded from the check.     | [here](https://github.com/recruit-tech/eslint-plugin-atomic-redesign/blob/main/lib/rules/denyGlobalState.ts#L30)     |
+| denyFunctionNames         | An array of function names that are considered to be using the local state.                     | [here](https://github.com/recruit-tech/eslint-plugin-atomic-redesign/blob/main/lib/rules/denyGlobalState.ts#L31-L39) |
 
 ### Rule: must-use-local-state
 
@@ -178,12 +178,12 @@ const [val, setVal] = useState(0);
 
 #### Options
 
-| Property Name         | Description                                                                                                   | Default Value                                |
-| :-------------------- | :------------------------------------------------------------------------------------------------------------ | :------------------------------------------- |
-| checkDirectorys       | An array of Glob patterns. The rule treats each directory that matches this pattern as a Molecules component. | [here](./lib/rules/mustUseLocalState.ts#L13) |
-| checkFilesInDirectory | An array of Glob patterns. The rule only checks files that match this pattern.                                | [here](./lib/rules/mustUseLocalState.ts#L14) |
-| excludeFilePatterns   | An array of RegExp patterns. Files with paths that match this pattern are excluded from the check.            | [here](./lib/rules/mustUseLocalState.ts#L15) |
-| keywords              | An array of strings that are considered to be using Local State.                                              | [here](./lib/rules/mustUseLocalState.ts#L16) |
+| Property Name         | Description                                                                                                   | Default Value                                                                                                      |
+| :-------------------- | :------------------------------------------------------------------------------------------------------------ | :----------------------------------------------------------------------------------------------------------------- |
+| checkDirectorys       | An array of Glob patterns. The rule treats each directory that matches this pattern as a Molecules component. | [here](https://github.com/recruit-tech/eslint-plugin-atomic-redesign/blob/main/lib/rules/mustUseLocalState.ts#L13) |
+| checkFilesInDirectory | An array of Glob patterns. The rule only checks files that match this pattern.                                | [here](https://github.com/recruit-tech/eslint-plugin-atomic-redesign/blob/main/lib/rules/mustUseLocalState.ts#L14) |
+| excludeFilePatterns   | An array of RegExp patterns. Files with paths that match this pattern are excluded from the check.            | [here](https://github.com/recruit-tech/eslint-plugin-atomic-redesign/blob/main/lib/rules/mustUseLocalState.ts#L15) |
+| keywords              | An array of strings that are considered to be using Local State.                                              | [here](https://github.com/recruit-tech/eslint-plugin-atomic-redesign/blob/main/lib/rules/mustUseLocalState.ts#L16) |
 
 ### Rule: must-use-global-state
 
@@ -209,12 +209,12 @@ const [val, setVal] = useContext(0);
 
 #### Options
 
-| Property Name         | Description                                                                                                   | Default Value                                     |
-| :-------------------- | :------------------------------------------------------------------------------------------------------------ | :------------------------------------------------ |
-| checkDirectorys       | An array of Glob patterns. The rule treats each directory that matches this pattern as a Organisms component. | [here](./lib/rules/mustUseGlobalState.ts#L13)     |
-| checkFilesInDirectory | An array of Glob patterns. The rule only checks files that match this pattern.                                | [here](./lib/rules/mustUseGlobalState.ts#L14)     |
-| excludeFilePatterns   | An array of RegExp patterns. Files with paths that match this pattern are excluded from the check.            | [here](./lib/rules/mustUseGlobalState.ts#L15)     |
-| keywords              | An array of strings that are considered to be using Global State.                                             | [here](./lib/rules/mustUseGlobalState.ts#L16-L25) |
+| Property Name         | Description                                                                                                   | Default Value                                                                                                           |
+| :-------------------- | :------------------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------- |
+| checkDirectorys       | An array of Glob patterns. The rule treats each directory that matches this pattern as a Organisms component. | [here](https://github.com/recruit-tech/eslint-plugin-atomic-redesign/blob/main/lib/rules/mustUseGlobalState.ts#L13)     |
+| checkFilesInDirectory | An array of Glob patterns. The rule only checks files that match this pattern.                                | [here](https://github.com/recruit-tech/eslint-plugin-atomic-redesign/blob/main/lib/rules/mustUseGlobalState.ts#L14)     |
+| excludeFilePatterns   | An array of RegExp patterns. Files with paths that match this pattern are excluded from the check.            | [here](https://github.com/recruit-tech/eslint-plugin-atomic-redesign/blob/main/lib/rules/mustUseGlobalState.ts#L15)     |
+| keywords              | An array of strings that are considered to be using Global State.                                             | [here](https://github.com/recruit-tech/eslint-plugin-atomic-redesign/blob/main/lib/rules/mustUseGlobalState.ts#L16-L25) |
 
 ### Licence
 

@@ -1,7 +1,11 @@
 {
   "name": "eslint-plugin-atomic-redesign",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "ESLint rules for Atomic ReDesigned projects.",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/recruit-tech/eslint-plugin-atomic-redesign.git"
+  },
   "keywords": [
     "eslint",
     "eslintplugin",
