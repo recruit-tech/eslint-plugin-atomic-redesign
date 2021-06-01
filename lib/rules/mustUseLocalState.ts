@@ -1,38 +1,38 @@
-import { TSESLint } from "@typescript-eslint/experimental-utils";
-import { localize } from "../utils";
+import { TSESLint } from '@typescript-eslint/experimental-utils';
+import { localize } from '../utils';
 import {
   getInitialKeywordContentInfo,
   KeywordContentInfo,
   Options,
   optionsJsonSchema,
   UserOptions,
-} from "./mustUseAnyKeywordsUtils";
+} from './mustUseAnyKeywordsUtils';
 
 // settings
 const defaultOptions: Options = {
-  checkDirectorys: ["./src/components/molecules/*/"],
-  checkFilesInDirectory: ["./src/components/molecules/**/*.ts*"],
-  excludeFilePatterns: [".*\\.test.*", ".*\\.stories.*"],
-  keywords: ["setState", "useState", "useReducer"],
+  checkDirectorys: ['./src/components/molecules/*/'],
+  checkFilesInDirectory: ['./src/components/molecules/**/*.ts*'],
+  excludeFilePatterns: ['.*\\.test.*', '.*\\.stories.*'],
+  keywords: ['setState', 'useState', 'useReducer'],
 };
 
 // rule
 let keywordContentInfo: KeywordContentInfo | undefined = undefined;
-const ruleName = "must-use-local-state";
+const ruleName = 'must-use-local-state';
 export const mustUseLocalState: TSESLint.RuleModule<typeof ruleName, []> = {
   meta: {
-    type: "suggestion",
+    type: 'suggestion',
     docs: {
-      category: "Best Practices",
+      category: 'Best Practices',
       description: localize({
-        en: "Molecules component must have Local States (setState, useState, useReducer, etc.).",
-        ja: "MoleculesコンポーネントはLocal State（setState、useState、useReducerなど）を持つ必要があります。",
+        en: 'Molecules component must have Local States (setState, useState, useReducer, etc.).',
+        ja: 'MoleculesコンポーネントはLocal State（setState、useState、useReducerなど）を持つ必要があります。',
       }),
-      recommended: "error",
-      url: "https://zenn.dev/takepepe/articles/atomic-redesign#molecules",
+      recommended: 'error',
+      url: 'https://zenn.dev/takepepe/articles/atomic-redesign#molecules',
     },
     messages: {
-      [ruleName]: "{{ message }}",
+      [ruleName]: '{{ message }}',
     },
     schema: optionsJsonSchema,
   },
@@ -78,8 +78,8 @@ export const mustUseLocalState: TSESLint.RuleModule<typeof ruleName, []> = {
             messageId: ruleName,
             data: {
               message: localize({
-                en: "Molecules must have Local States (setState, useState, useReducer, etc.).",
-                ja: "MoleculesはLocal State（setState、useState、useReducerなど）を持つ必要があります。",
+                en: 'Molecules must have Local States (setState, useState, useReducer, etc.).',
+                ja: 'MoleculesはLocal State（setState、useState、useReducerなど）を持つ必要があります。',
               }),
             },
           });

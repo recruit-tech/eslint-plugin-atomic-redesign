@@ -1,5 +1,5 @@
-import localeCode from "locale-code";
-import osLocale from "os-locale";
+import localeCode from 'locale-code';
+import osLocale from 'os-locale';
 
 export const testString = (str: string, pattern: string): boolean =>
   new RegExp(pattern).test(str);

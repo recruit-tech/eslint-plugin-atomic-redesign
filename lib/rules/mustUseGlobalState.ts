@@ -1,47 +1,47 @@
-import { TSESLint } from "@typescript-eslint/experimental-utils";
-import { localize } from "../utils";
+import { TSESLint } from '@typescript-eslint/experimental-utils';
+import { localize } from '../utils';
 import {
   getInitialKeywordContentInfo,
   KeywordContentInfo,
   Options,
   optionsJsonSchema,
   UserOptions,
-} from "./mustUseAnyKeywordsUtils";
+} from './mustUseAnyKeywordsUtils';
 
 // settings
 const defaultOptions: Options = {
-  checkDirectorys: ["./src/components/organisms/*/"],
-  checkFilesInDirectory: ["./src/components/organisms/**/*.ts*"],
-  excludeFilePatterns: [".*\\.test.*", ".*\\.stories.*"],
+  checkDirectorys: ['./src/components/organisms/*/'],
+  checkFilesInDirectory: ['./src/components/organisms/**/*.ts*'],
+  excludeFilePatterns: ['.*\\.test.*', '.*\\.stories.*'],
   keywords: [
-    "fetch",
-    "XMLHttpRequest",
-    "useSWR",
-    "useContext",
-    "createContext",
-    "useSelector",
-    "useStore",
-    "ConfirmContainerWindowConsumer",
+    'fetch',
+    'XMLHttpRequest',
+    'useSWR',
+    'useContext',
+    'createContext',
+    'useSelector',
+    'useStore',
+    'ConfirmContainerWindowConsumer',
   ],
 };
 
 // rule
 let keywordContentInfo: KeywordContentInfo | undefined = undefined;
-const ruleName = "must-use-global-state";
+const ruleName = 'must-use-global-state';
 export const mustUseGlobalState: TSESLint.RuleModule<typeof ruleName, []> = {
   meta: {
-    type: "suggestion",
+    type: 'suggestion',
     docs: {
-      category: "Best Practices",
+      category: 'Best Practices',
       description: localize({
-        en: "Organisms component must have Global States (fetch, useContext, useSWR, useSelector, etc.).",
-        ja: "OrganismsコンポーネントはGlobal State（fetch、useContext、useSWR、useSelectorなど）を持つ必要があります。",
+        en: 'Organisms component must have Global States (fetch, useContext, useSWR, useSelector, etc.).',
+        ja: 'OrganismsコンポーネントはGlobal State（fetch、useContext、useSWR、useSelectorなど）を持つ必要があります。',
       }),
-      recommended: "error",
-      url: "https://zenn.dev/takepepe/articles/atomic-redesign#organisms",
+      recommended: 'error',
+      url: 'https://zenn.dev/takepepe/articles/atomic-redesign#organisms',
     },
     messages: {
-      [ruleName]: "{{ message }}",
+      [ruleName]: '{{ message }}',
     },
     schema: optionsJsonSchema,
   },
@@ -86,8 +86,8 @@ export const mustUseGlobalState: TSESLint.RuleModule<typeof ruleName, []> = {
             messageId: ruleName,
             data: {
               message: localize({
-                en: "Organisms must have Global States (fetch, useContext, useSWR, useSelector, etc.).",
-                ja: "OrganismsはGlobal State（fetch、useContext、useSWR、useSelectorなど）を持つ必要があります。",
+                en: 'Organisms must have Global States (fetch, useContext, useSWR, useSelector, etc.).',
+                ja: 'OrganismsはGlobal State（fetch、useContext、useSWR、useSelectorなど）を持つ必要があります。',
               }),
             },
           });

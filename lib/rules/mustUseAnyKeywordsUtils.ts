@@ -1,8 +1,8 @@
-import fs from "fs";
-import glob from "glob";
-import { JSONSchema4 } from "json-schema";
-import path from "path";
-import { testString } from "../utils";
+import fs from 'fs';
+import glob from 'glob';
+import { JSONSchema4 } from 'json-schema';
+import path from 'path';
+import { testString } from '../utils';
 
 // types
 export type Options = {
@@ -16,30 +16,30 @@ export type UserOptions = Partial<Options>;
 // schema
 export const optionsJsonSchema: JSONSchema4 = [
   {
-    type: "object",
+    type: 'object',
     properties: {
       checkDirectorys: {
-        type: "array",
+        type: 'array',
         items: {
-          type: "string",
+          type: 'string',
         },
       },
       checkFilesInDirectory: {
-        type: "array",
+        type: 'array',
         items: {
-          type: "string",
+          type: 'string',
         },
       },
       excludeFilePatterns: {
-        type: "array",
+        type: 'array',
         items: {
-          type: "string",
+          type: 'string',
         },
       },
       keywords: {
-        type: "array",
+        type: 'array',
         items: {
-          type: "string",
+          type: 'string',
         },
       },
     },

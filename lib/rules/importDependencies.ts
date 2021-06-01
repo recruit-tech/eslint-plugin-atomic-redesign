@@ -1,5 +1,5 @@
-import { TSESLint } from "@typescript-eslint/experimental-utils";
-import { localize, testString } from "../utils";
+import { TSESLint } from '@typescript-eslint/experimental-utils';
+import { localize, testString } from '../utils';
 
 // types
 type Options = {
@@ -18,74 +18,74 @@ type Options = {
   };
 };
 type UserOptions = {
-  includeSourceFilePatterns?: Partial<Options["includeSourceFilePatterns"]>;
-  excludeSourceFilePatterns?: Options["excludeSourceFilePatterns"];
-  importPatterns?: Partial<Options["importPatterns"]>;
+  includeSourceFilePatterns?: Partial<Options['includeSourceFilePatterns']>;
+  excludeSourceFilePatterns?: Options['excludeSourceFilePatterns'];
+  importPatterns?: Partial<Options['importPatterns']>;
 };
 
 // settings
 const defaultOptions: Options = {
   includeSourceFilePatterns: {
-    atoms: ".*\\/atoms\\/.*\\.tsx",
-    molecules: ".*\\/molecules\\/.*\\.tsx",
-    organisms: ".*\\/organisms\\/.*\\.tsx",
-    templates: ".*\\/templates\\/.*\\.tsx",
+    atoms: '.*\\/atoms\\/.*\\.tsx',
+    molecules: '.*\\/molecules\\/.*\\.tsx',
+    organisms: '.*\\/organisms\\/.*\\.tsx',
+    templates: '.*\\/templates\\/.*\\.tsx',
   },
-  excludeSourceFilePatterns: [".*\\.test.*", ".*\\.stories.*"],
+  excludeSourceFilePatterns: ['.*\\.test.*', '.*\\.stories.*'],
   importPatterns: {
-    atoms: ".*\\/atoms\\/.*",
-    molecules: ".*\\/molecules\\/.*",
-    organisms: ".*\\/organisms\\/.*",
-    templates: ".*\\/templates\\/.*",
+    atoms: '.*\\/atoms\\/.*',
+    molecules: '.*\\/molecules\\/.*',
+    organisms: '.*\\/organisms\\/.*',
+    templates: '.*\\/templates\\/.*',
   },
 };
 
 // rule
 export const importDependencies: TSESLint.RuleModule<
-  "import-dependencies",
+  'import-dependencies',
   []
 > = {
   meta: {
-    type: "suggestion",
+    type: 'suggestion',
     docs: {
-      category: "Best Practices",
+      category: 'Best Practices',
       description: localize({
-        en: "Detects each component importing a higher level component than itself.",
-        ja: "各コンポーネントは自身より上位のレベルのコンポーネントをimportできません。",
+        en: 'Detects each component importing a higher level component than itself.',
+        ja: '各コンポーネントは自身より上位のレベルのコンポーネントをimportできません。',
       }),
 
-      recommended: "error",
-      url: "https://zenn.dev/takepepe/articles/atomic-redesign#%E5%8E%9F%E5%AD%90%E3%81%AE%E5%86%8D%E5%AE%9A%E7%BE%A9",
+      recommended: 'error',
+      url: 'https://zenn.dev/takepepe/articles/atomic-redesign#%E5%8E%9F%E5%AD%90%E3%81%AE%E5%86%8D%E5%AE%9A%E7%BE%A9',
     },
     messages: {
-      "import-dependencies": "{{ message }}",
+      'import-dependencies': '{{ message }}',
     },
     schema: [
       {
-        type: "object",
+        type: 'object',
         properties: {
           includeSourceFilePatterns: {
-            type: "object",
+            type: 'object',
             properties: {
-              atoms: { type: "string" },
-              molecules: { type: "string" },
-              organisms: { type: "string" },
-              templates: { type: "string" },
+              atoms: { type: 'string' },
+              molecules: { type: 'string' },
+              organisms: { type: 'string' },
+              templates: { type: 'string' },
             },
           },
           excludeSourceFilePatterns: {
-            type: "array",
+            type: 'array',
             items: {
-              type: "string",
+              type: 'string',
             },
           },
           importPatterns: {
-            type: "object",
+            type: 'object',
             properties: {
-              atoms: { type: "string" },
-              molecules: { type: "string" },
-              organisms: { type: "string" },
-              templates: { type: "string" },
+              atoms: { type: 'string' },
+              molecules: { type: 'string' },
+              organisms: { type: 'string' },
+              templates: { type: 'string' },
             },
           },
         },
@@ -135,11 +135,11 @@ export const importDependencies: TSESLint.RuleModule<
       // atoms source file
       if (testString(sourceFilePath, options.includeSourceFilePatterns.atoms)) {
         if (testString(importPath, options.importPatterns.molecules))
-          return generateMessageUtil("atoms", "molecules");
+          return generateMessageUtil('atoms', 'molecules');
         if (testString(importPath, options.importPatterns.organisms))
-          return generateMessageUtil("atoms", "organisms");
+          return generateMessageUtil('atoms', 'organisms');
         if (testString(importPath, options.importPatterns.templates))
-          return generateMessageUtil("atoms", "templates");
+          return generateMessageUtil('atoms', 'templates');
       }
 
       // molecules source file
@@ -147,9 +147,9 @@ export const importDependencies: TSESLint.RuleModule<
         testString(sourceFilePath, options.includeSourceFilePatterns.molecules)
       ) {
         if (testString(importPath, options.importPatterns.organisms))
-          return generateMessageUtil("molecules", "organisms");
+          return generateMessageUtil('molecules', 'organisms');
         if (testString(importPath, options.importPatterns.templates))
-          return generateMessageUtil("molecules", "templates");
+          return generateMessageUtil('molecules', 'templates');
       }
 
       // organisms source file
@@ -157,7 +157,7 @@ export const importDependencies: TSESLint.RuleModule<
         testString(sourceFilePath, options.includeSourceFilePatterns.organisms)
       ) {
         if (testString(importPath, options.importPatterns.templates))
-          return generateMessageUtil("organisms", "templates");
+          return generateMessageUtil('organisms', 'templates');
       }
 
       // template source file
@@ -167,7 +167,7 @@ export const importDependencies: TSESLint.RuleModule<
         if (testString(importPath, options.importPatterns.templates))
           return localize({
             en: `template cannot import other templates.`,
-            ja: "templateは他のtemplateをimportできません。",
+            ja: 'templateは他のtemplateをimportできません。',
           });
       }
 
@@ -179,7 +179,7 @@ export const importDependencies: TSESLint.RuleModule<
         if (isExcludedFile) return;
 
         const importPath = node.source.value;
-        if (typeof importPath !== "string") return;
+        if (typeof importPath !== 'string') return;
 
         const validateResult = isValidImport(
           importPath,
@@ -190,7 +190,7 @@ export const importDependencies: TSESLint.RuleModule<
         if (validateResult) {
           context.report({
             node,
-            messageId: "import-dependencies",
+            messageId: 'import-dependencies',
             data: { message: validateResult },
           });
         }

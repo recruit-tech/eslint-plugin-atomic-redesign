@@ -1,12 +1,12 @@
-import { TSESLint } from "@typescript-eslint/experimental-utils";
-import { denyGlobalState } from "./denyGlobalState";
+import { TSESLint } from '@typescript-eslint/experimental-utils';
+import { denyGlobalState } from './denyGlobalState';
 
-const ruleName = "deny-global-state";
+const ruleName = 'deny-global-state';
 const tester = new TSESLint.RuleTester({
-  parser: require.resolve("espree"),
+  parser: require.resolve('espree'),
   parserOptions: {
     ecmaVersion: 2020,
-    sourceType: "module",
+    sourceType: 'module',
   },
 });
 
@@ -16,14 +16,14 @@ class ClassComponent extends React.Component {
   render() {
     ${funcName}();
   }
-}`.replace(/\n/g, "");
+}`.replace(/\n/g, '');
 
 const getSampleFunctionalComponentCode = (funcName: string): string =>
   `
 const FunctionalComponent = () => {
   const [somevar] = ${funcName}();
 };
-`.replace(/\n/g, "");
+`.replace(/\n/g, '');
 
 const generateTestCases = (
   filepath: string,
@@ -39,41 +39,41 @@ const generateTestCases = (
       filename: filepath,
       code: generator(funcname),
       errors: isError
-        ? [{ messageId: "deny-global-state" as const }]
+        ? [{ messageId: 'deny-global-state' as const }]
         : undefined,
     }))
   );
   return test_cases;
 };
 
-const CWD = "/Users/testuser/project";
-describe("test", () => {
+const CWD = '/Users/testuser/project';
+describe('test', () => {
   tester.run(ruleName, denyGlobalState, {
     valid: [
       ...generateTestCases(
         `${CWD}/src/components/atoms/test/index.tsx`,
-        ["useEffect", "useCallback", "React.useEffect", "React.useCallback"],
+        ['useEffect', 'useCallback', 'React.useEffect', 'React.useCallback'],
         false
       ),
       ...generateTestCases(
         `${CWD}/src/components/molecules/test/index.tsx`,
-        ["useEffect", "useCallback", "React.useEffect", "React.useCallback"],
+        ['useEffect', 'useCallback', 'React.useEffect', 'React.useCallback'],
         false
       ),
       ...generateTestCases(
         `${CWD}/src/components/molecules/test/index.test.tsx`,
         [
-          "fetch",
-          "XMLHttpRequest",
-          "useSWR",
-          "useContext",
-          "createContext",
-          "useSelector",
-          "useStore",
-          "React.useContext",
-          "React.createContext",
-          "Redux.useSelector",
-          "Redux.useStore",
+          'fetch',
+          'XMLHttpRequest',
+          'useSWR',
+          'useContext',
+          'createContext',
+          'useSelector',
+          'useStore',
+          'React.useContext',
+          'React.createContext',
+          'Redux.useSelector',
+          'Redux.useStore',
         ],
         true
       ),
@@ -82,34 +82,34 @@ describe("test", () => {
       ...generateTestCases(
         `${CWD}/src/components/atoms/test/index.tsx`,
         [
-          "fetch",
-          "XMLHttpRequest",
-          "useSWR",
-          "useContext",
-          "createContext",
-          "useSelector",
-          "useStore",
-          "React.useContext",
-          "React.createContext",
-          "Redux.useSelector",
-          "Redux.useStore",
+          'fetch',
+          'XMLHttpRequest',
+          'useSWR',
+          'useContext',
+          'createContext',
+          'useSelector',
+          'useStore',
+          'React.useContext',
+          'React.createContext',
+          'Redux.useSelector',
+          'Redux.useStore',
         ],
         true
       ),
       ...generateTestCases(
         `${CWD}/src/components/molecules/test/index.tsx`,
         [
-          "fetch",
-          "XMLHttpRequest",
-          "useSWR",
-          "useContext",
-          "createContext",
-          "useSelector",
-          "useStore",
-          "React.useContext",
-          "React.createContext",
-          "Redux.useSelector",
-          "Redux.useStore",
+          'fetch',
+          'XMLHttpRequest',
+          'useSWR',
+          'useContext',
+          'createContext',
+          'useSelector',
+          'useStore',
+          'React.useContext',
+          'React.createContext',
+          'Redux.useSelector',
+          'Redux.useStore',
         ],
         true
       ),
