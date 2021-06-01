@@ -24,10 +24,10 @@ export const denyGlobalState: TSESLint.RuleModule<typeof ruleName, []> = {
   create: makeCreateHandler<typeof ruleName>(
     {
       includeSourceFilePatterns: [
-        '.*\\/atoms\\/.*\\.tsx',
-        '.*\\/molecules\\/.*\\.tsx',
+        '\\/atoms\\/.*\\.tsx',
+        '\\/molecules\\/.*\\.tsx',
       ],
-      excludeSourceFilePatterns: ['.*\\.test.*', '.*\\.stories.*'],
+      excludeSourceFilePatterns: ['\\.test', '\\.stories'],
       denyFunctionNames: [
         'fetch',
         'XMLHttpRequest',

@@ -23,8 +23,8 @@ export const denyLocalState: TSESLint.RuleModule<typeof ruleName, []> = {
   },
   create: makeCreateHandler<typeof ruleName>(
     {
-      includeSourceFilePatterns: ['.*\\/atoms\\/.*\\.tsx'],
-      excludeSourceFilePatterns: ['.*\\.test.*', '.*\\.stories.*'],
+      includeSourceFilePatterns: ['\\/atoms\\/.*\\.tsx'],
+      excludeSourceFilePatterns: ['\\.test', '\\.stories'],
       denyFunctionNames: ['setState', 'useState', 'useReducer'],
     },
     (node, context, denyedFunctionName) => {

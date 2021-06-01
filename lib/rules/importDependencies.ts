@@ -26,17 +26,17 @@ type UserOptions = {
 // settings
 const defaultOptions: Options = {
   includeSourceFilePatterns: {
-    atoms: '.*\\/atoms\\/.*\\.tsx',
-    molecules: '.*\\/molecules\\/.*\\.tsx',
-    organisms: '.*\\/organisms\\/.*\\.tsx',
-    templates: '.*\\/templates\\/.*\\.tsx',
+    atoms: '\\/atoms\\/.*\\.tsx',
+    molecules: '\\/molecules\\/.*\\.tsx',
+    organisms: '\\/organisms\\/.*\\.tsx',
+    templates: '\\/templates\\/.*\\.tsx',
   },
-  excludeSourceFilePatterns: ['.*\\.test.*', '.*\\.stories.*'],
+  excludeSourceFilePatterns: ['\\.test', '\\.stories'],
   importPatterns: {
-    atoms: '.*\\/atoms\\/.*',
-    molecules: '.*\\/molecules\\/.*',
-    organisms: '.*\\/organisms\\/.*',
-    templates: '.*\\/templates\\/.*',
+    atoms: '\\/atoms\\/',
+    molecules: '\\/molecules\\/',
+    organisms: '\\/organisms\\/',
+    templates: '\\/templates\\/',
   },
 };
 

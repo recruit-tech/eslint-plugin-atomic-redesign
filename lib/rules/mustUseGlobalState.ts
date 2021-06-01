@@ -12,7 +12,7 @@ import {
 const defaultOptions: Options = {
   checkDirectorys: ['./src/components/organisms/*/'],
   checkFilesInDirectory: ['./src/components/organisms/**/*.ts*'],
-  excludeFilePatterns: ['.*\\.test.*', '.*\\.stories.*'],
+  excludeFilePatterns: ['\\.test', '\\.stories'],
   keywords: [
     'fetch',
     'XMLHttpRequest',

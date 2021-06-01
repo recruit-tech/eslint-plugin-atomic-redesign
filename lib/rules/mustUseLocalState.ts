@@ -12,7 +12,7 @@ import {
 const defaultOptions: Options = {
   checkDirectorys: ['./src/components/molecules/*/'],
   checkFilesInDirectory: ['./src/components/molecules/**/*.ts*'],
-  excludeFilePatterns: ['.*\\.test.*', '.*\\.stories.*'],
+  excludeFilePatterns: ['\\.test', '\\.stories'],
   keywords: ['setState', 'useState', 'useReducer'],
 };
 
