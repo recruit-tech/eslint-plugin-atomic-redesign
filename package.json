@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-atomic-redesign",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "ESLint rules for Atomic ReDesigned projects.",
   "repository": {
     "type": "git",
@@ -21,7 +21,8 @@
   "dependencies": {
     "glob": "^7.1.7",
     "locale-code": "^2.0.2",
-    "os-locale": "^5.0.0"
+    "os-locale": "^5.0.0",
+    "upath": "^2.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",

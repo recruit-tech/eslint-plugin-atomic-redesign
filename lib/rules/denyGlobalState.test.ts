@@ -47,6 +47,7 @@ const generateTestCases = (
 };
 
 const CWD = '/Users/testuser/project';
+const CWDWin = 'C:\\Users\\testuser\\project';
 describe('test', () => {
   tester.run(ruleName, denyGlobalState, {
     valid: [
@@ -62,6 +63,34 @@ describe('test', () => {
       ),
       ...generateTestCases(
         `${CWD}/src/components/molecules/test/index.test.tsx`,
+        [
+          'fetch',
+          'XMLHttpRequest',
+          'useSWR',
+          'useContext',
+          'createContext',
+          'useSelector',
+          'useStore',
+          'React.useContext',
+          'React.createContext',
+          'Redux.useSelector',
+          'Redux.useStore',
+        ],
+        true
+      ),
+
+      ...generateTestCases(
+        `${CWDWin}\\src\\components\\atoms\\test\\index.tsx`,
+        ['useEffect', 'useCallback', 'React.useEffect', 'React.useCallback'],
+        false
+      ),
+      ...generateTestCases(
+        `${CWDWin}\\src\\components\\molecules\\test\\index.tsx`,
+        ['useEffect', 'useCallback', 'React.useEffect', 'React.useCallback'],
+        false
+      ),
+      ...generateTestCases(
+        `${CWDWin}\\src\\components\\molecules\\test\\index.test.tsx`,
         [
           'fetch',
           'XMLHttpRequest',
@@ -98,6 +127,41 @@ describe('test', () => {
       ),
       ...generateTestCases(
         `${CWD}/src/components/molecules/test/index.tsx`,
+        [
+          'fetch',
+          'XMLHttpRequest',
+          'useSWR',
+          'useContext',
+          'createContext',
+          'useSelector',
+          'useStore',
+          'React.useContext',
+          'React.createContext',
+          'Redux.useSelector',
+          'Redux.useStore',
+        ],
+        true
+      ),
+
+      ...generateTestCases(
+        `${CWDWin}\\src\\components\\atoms\\test\\index.tsx`,
+        [
+          'fetch',
+          'XMLHttpRequest',
+          'useSWR',
+          'useContext',
+          'createContext',
+          'useSelector',
+          'useStore',
+          'React.useContext',
+          'React.createContext',
+          'Redux.useSelector',
+          'Redux.useStore',
+        ],
+        true
+      ),
+      ...generateTestCases(
+        `${CWDWin}\\src\\components\\molecules\\test\\index.tsx`,
         [
           'fetch',
           'XMLHttpRequest',

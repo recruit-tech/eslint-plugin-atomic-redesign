@@ -2,6 +2,7 @@ import { TSESLint } from '@typescript-eslint/experimental-utils';
 import { CallExpression } from '@typescript-eslint/types/dist/ast-spec';
 import { JSONSchema4 } from 'json-schema';
 import { testString } from '../utils';
+import { normalize } from 'upath';
 
 export type Options = {
   includeSourceFilePatterns: string[];
@@ -68,7 +69,7 @@ export const makeCreateHandler =
       ...userOptions,
     };
 
-    const lintingFilePath = context.getFilename();
+    const lintingFilePath = normalize(context.getFilename());
     const includedPattern = options.includeSourceFilePatterns.find((pattern) =>
       testString(lintingFilePath, pattern)
     );

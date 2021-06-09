@@ -1,5 +1,6 @@
 import { TSESLint } from '@typescript-eslint/experimental-utils';
 import { localize, testString } from '../utils';
+import { normalize } from 'upath';
 
 // types
 type Options = {
@@ -112,7 +113,7 @@ export const importDependencies: TSESLint.RuleModule<
       },
     };
 
-    const sourceFilePath = context.getFilename();
+    const sourceFilePath = normalize(context.getFilename());
     const isExcludedFile = options.excludeSourceFilePatterns.some((pattern) =>
       testString(sourceFilePath, pattern)
     );

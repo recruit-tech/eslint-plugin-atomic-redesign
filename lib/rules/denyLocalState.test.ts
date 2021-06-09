@@ -47,6 +47,7 @@ const generateTestCases = (
 };
 
 const CWD = '/Users/testuser/project';
+const CWDWin = 'C:\\Users\\testuser\\project';
 describe('test', () => {
   tester.run(ruleName, denyLocalState, {
     valid: [
@@ -73,7 +74,41 @@ describe('test', () => {
         false
       ),
       ...generateTestCases(
+        `${CWDWin}\\src\\components\\atoms\\test\\index.tsx`,
+        [
+          'useEffect',
+          'useContext',
+          'useCallback',
+          'useMemo',
+          'useRef',
+          'useImperativeHandle',
+          'useLayoutEffect',
+          'useDebugValue',
+          'React.useEffect',
+          'React.useContext',
+          'React.useCallback',
+          'React.useMemo',
+          'React.useRef',
+          'React.useImperativeHandle',
+          'React.useLayoutEffect',
+          'React.useDebugValue',
+        ],
+        false
+      ),
+
+      ...generateTestCases(
         `${CWD}/src/components/atoms/test/index.test.tsx`,
+        [
+          'this.setState',
+          'useState',
+          'useReducer',
+          'React.useState',
+          'React.useReducer',
+        ],
+        false
+      ),
+      ...generateTestCases(
+        `${CWDWin}\\src\\components\\atoms\\test\\index.test.tsx`,
         [
           'this.setState',
           'useState',
@@ -87,6 +122,17 @@ describe('test', () => {
     invalid: [
       ...generateTestCases(
         `${CWD}/src/components/atoms/test/index.tsx`,
+        [
+          'this.setState',
+          'useState',
+          'useReducer',
+          'React.useState',
+          'React.useReducer',
+        ],
+        true
+      ),
+      ...generateTestCases(
+        `${CWDWin}\\src\\components\\atoms\\test\\index.tsx`,
         [
           'this.setState',
           'useState',

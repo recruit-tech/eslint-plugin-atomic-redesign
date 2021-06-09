@@ -12,6 +12,7 @@ const tester = new TSESLint.RuleTester({
 
 type PartsType = 'atoms' | 'molecules' | 'organisms' | 'templates';
 const CWD = '/Users/testuser/project';
+const CWDWin = 'C:\\Users\\testuser\\project';
 const generateTestCase = (
   fileType: PartsType,
   importType: PartsType,
@@ -28,6 +29,22 @@ const generateTestCase = (
   },
   {
     filename: `${CWD}/src/components/${fileType}/foo/index.tsx`,
+    code: `import component from '@/components/${importType}/bar/index.tsx'`,
+    errors: isError
+      ? [{ messageId: 'import-dependencies' as const }]
+      : undefined,
+  },
+  {
+    filename: `${CWDWin}\\src\\components\\${fileType}\\foo\\index.tsx`,
+    code: `import component from '${
+      fileType === importType ? '..' : `../${importType}`
+    }/bar/index.tsx'`,
+    errors: isError
+      ? [{ messageId: 'import-dependencies' as const }]
+      : undefined,
+  },
+  {
+    filename: `${CWDWin}\\src\\components\\${fileType}\\foo\\index.tsx`,
     code: `import component from '@/components/${importType}/bar/index.tsx'`,
     errors: isError
       ? [{ messageId: 'import-dependencies' as const }]
