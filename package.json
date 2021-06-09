@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-atomic-redesign",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "ESLint rules for Atomic ReDesigned projects.",
   "repository": {
     "type": "git",
