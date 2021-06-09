@@ -16,7 +16,7 @@
   "scripts": {
     "build": "tsc",
     "test": "jest",
-    "prepublish": "npm test && npm run build"
+    "prepublishOnly": "npm test && npm run build"
   },
   "dependencies": {
     "glob": "^7.1.7",
